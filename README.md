@@ -73,3 +73,9 @@ CMD ["server.py"]
 docker build -t project_:latest .
 docker run -d -p 5000:5000 project_
 ```
+
+
+# How my API works?
+1. flask를 이용한 server.py 에서 spider정보를 가지고 커맨드라인 scrapy crawl [spider_name] -o [output.json] -a param1=val1 -a param2=val2 을 subprocess를 이용하여 실행시켰습니다.
+2. priceSpider.py는 이 subprocess를 통해 scraping작업을 하고 결과물을 yield를 통해 json에 저장합니다.
+3. 다시 server.py에서 해당 데이터를 read하여 flask server running 되고 있는 상태에서 http://localhost:5000/product_id를 통해 할인가를 확인할 수 있습니다.
