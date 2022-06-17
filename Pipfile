@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 scrapyrt = "*"
-Scrapy = "==1.4.0"
+Scrapy = "==2.6.1"
 Flask = "==1.0.2"
 requests = "*"
 
